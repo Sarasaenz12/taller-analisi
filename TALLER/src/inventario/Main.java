@@ -62,7 +62,7 @@ public class Main {
                         int qty = scanner.nextInt();
                         scanner.nextLine();
                         inventoryService.addProduct(pId, qty);
-                        LOGGER.info("✅ Producto agregado correctamente.");
+                        LOGGER.info("Producto agregado correctamente.");
                     }
                     case 2 -> {
                         LOGGER.info("ID producto vendido: ");
@@ -71,7 +71,7 @@ public class Main {
                         int qty = scanner.nextInt();
                         scanner.nextLine();
                         saleService.registerSale(pId, qty);
-                        LOGGER.info("✅ Venta registrada correctamente.");
+                        LOGGER.info("Venta registrada correctamente.");
                     }
                     case 3 -> {
                         Order order = new Order();
@@ -88,13 +88,13 @@ public class Main {
                             more = scanner.nextLine();
                         } while (more.equalsIgnoreCase("s"));
                         orderService.createOrder(order);
-                        LOGGER.info("✅ Orden creada correctamente.");
+                        LOGGER.info("Orden creada correctamente.");
                     }
                     case 4 -> {
                         LOGGER.info("ID producto: ");
                         String pId = scanner.nextLine();
                         int stock = inventoryService.getStock(pId);
-                        LOGGER.log(Level.INFO, "📦 Stock actual: {0}", stock);
+                        LOGGER.log(Level.INFO, "Stock actual: {0}", stock);
                     }
                     case 5 -> {
                         LOGGER.info("Correo destinatario: ");
@@ -102,14 +102,14 @@ public class Main {
                         Order order = new Order();
                         order.addItem(new OrderItem("TEMP", 1)); // Simulación mínima
                         emailService.sendOrderConfirmation(email, order);
-                        LOGGER.log(Level.INFO, "📧 Confirmación enviada a: {0}", email);
+                        LOGGER.log(Level.INFO, "Confirmación enviada a: {0}", email);
                     }
-                    case 0 -> LOGGER.info("✅ Sistema finalizado correctamente.");
-                    default -> LOGGER.warning("❌ Opción inválida. Intente nuevamente.");
+                    case 0 -> LOGGER.info("Sistema finalizado correctamente.");
+                    default -> LOGGER.warning("Opción inválida. Intente nuevamente.");
                 }
 
             } catch (Exception e) {
-                LOGGER.log(Level.SEVERE, "⚠️ Error: Entrada inválida o fallo en la operación.", e);
+                LOGGER.log(Level.SEVERE, "Error: Entrada inválida o fallo en la operación.", e);
                 scanner.nextLine(); // limpiar buffer si ocurre error
                 option = -1; // para continuar el ciclo
             }
@@ -119,3 +119,4 @@ public class Main {
         scanner.close();
     }
 }
+
